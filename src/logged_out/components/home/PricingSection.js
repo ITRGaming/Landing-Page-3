@@ -39,14 +39,27 @@ const styles = (theme) => ({
       maxWidth: 360,
     },
   },
+  divPrice: {
+    position : 'relative',
+    '::before':{
+      content: '',
+      position: 'absolute',
+      top: '-2rem',
+      left: '0',
+      width: '100%',
+      height: '30px',
+      borderRadius: '10 10 0 0',
+    }
+  }
 });
 
 function PricingSection(props) {
   const { classes, theme } = props;
   const width = useWidth();
   const isWidthUpMd = useMediaQuery(theme.breakpoints.up("md"));
+  
   return (
-    <div className="lg-p-top" style={{ backgroundColor: "#FFFFFF" }}>
+    <div className={classNames("py-5", classes.divPrice)} style={{ backgroundColor: "#ffdbf7" }}>
       <Typography variant="h3" align="center" className="lg-mg-bottom">
         Pricing
       </Typography>
@@ -63,6 +76,7 @@ function PricingSection(props) {
             lg={3}
             className={classes.cardWrapper}
             data-aos="zoom-in-up"
+            data-aos-delay={200}
           >
             <PriceCard
               title="Starter"
@@ -76,6 +90,7 @@ function PricingSection(props) {
             />
           </Grid>
           <Grid
+            highlighted
             item
             className={classes.cardWrapperHighlighted}
             xs={12}
@@ -85,7 +100,6 @@ function PricingSection(props) {
             data-aos-delay="200"
           >
             <PriceCard
-              highlighted
               title="Premium"
               pricing={
                 <span>

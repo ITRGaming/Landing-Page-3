@@ -6,6 +6,8 @@ import withStyles from "@mui/styles/withStyles";
 import WaveBorder from "../../../shared/components/WaveBorder";
 import ZoomImage from "../../../shared/components/ZoomImage";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import HeaderImg from '../../../images/logged_out/headerImage.jpg';
+import BannerVideo from '../../../images/video/bannerVideo.mp4';
 
 const styles = (theme) => ({
   extraLargeButtonLabel: {
@@ -58,7 +60,8 @@ const styles = (theme) => ({
   },
   wrapper: {
     position: "relative",
-    backgroundColor: theme.palette.secondary.main,
+    width: "100%",
+    overflow: "hidden",
     paddingBottom: theme.spacing(2),
   },
   image: {
@@ -86,6 +89,8 @@ const styles = (theme) => ({
     },
   },
   waveBorder: {
+    position: 'absolute',
+    width: '100%',
     paddingTop: theme.spacing(4),
   },
 });
@@ -96,7 +101,16 @@ function HeadSection(props) {
 
   return (
     <Fragment>
-      <div className={classNames("lg-p-top", classes.wrapper)}>
+      <div className={classNames("pt-5", classes.wrapper)}>
+      <video muted autoPlay loop style={{width: '100%'}}>
+        <source src={BannerVideo} type="video/mp4" />
+      </video>
+      <WaveBorder
+        upperColor="#000"
+        lowerColor="#fff"
+        className={classes.waveBorder}
+        animationNegativeDelay={2}
+      />
         <div className={classNames("container-fluid", classes.container)}>
           <Box display="flex" justifyContent="center" className="row">
             <Card
@@ -115,8 +129,7 @@ function HeadSection(props) {
                     >
                       <Box mb={4}>
                         <Typography variant={isWidthUpLg ? "h3" : "h4"}>
-                          Free Template for building a SaaS app using
-                          Material-UI
+                          Boost your Career with UGC approved programmes
                         </Typography>
                       </Box>
                       <div>
@@ -145,7 +158,7 @@ function HeadSection(props) {
                   <Hidden mdDown>
                     <Grid item md={6}>
                       <ZoomImage
-                        src={`${process.env.PUBLIC_URL}/images/logged_out/headerImage.jpg`}
+                        src={HeaderImg}
                         className={classes.image}
                         alt="header example"
                       />
@@ -157,12 +170,7 @@ function HeadSection(props) {
           </Box>
         </div>
       </div>
-      <WaveBorder
-        upperColor={theme.palette.secondary.main}
-        lowerColor="#FFFFFF"
-        className={classes.waveBorder}
-        animationNegativeDelay={2}
-      />
+      
     </Fragment>
   );
 }
