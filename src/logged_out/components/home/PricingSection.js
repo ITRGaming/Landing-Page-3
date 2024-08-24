@@ -2,9 +2,9 @@ import React from "react";
 import classNames from "classnames";
 import { Grid, Typography } from "@mui/material";
 import { withStyles } from "@mui/styles";
+import WaveBorder from "../../../shared/components/WaveBorder";
 import PriceCard from "./PriceCard";
 import calculateSpacing from "./calculateSpacing";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import useWidth from "../../../shared/functions/useWidth";
 
 const styles = (theme) => ({
@@ -40,28 +40,37 @@ const styles = (theme) => ({
     },
   },
   divPrice: {
-    position : 'relative',
-    '::before':{
-      content: '',
-      position: 'absolute',
-      top: '-2rem',
-      left: '0',
-      width: '100%',
-      height: '30px',
-      borderRadius: '10 10 0 0',
-    }
-  }
+    position: "relative",
+    "::before": {
+      content: "",
+      position: "absolute",
+      top: "-2rem",
+      left: "0",
+      width: "100%",
+      height: "30px",
+      borderRadius: "10 10 0 0",
+    },
+  },
+  waveBorder: {
+    position: "absolute",
+    width: "100%",
+    marginTop: theme.spacing(4),
+    paddingTop: theme.spacing(4),
+    bottom: "0",
+  },
 });
 
 function PricingSection(props) {
   const { classes, theme } = props;
   const width = useWidth();
-  const isWidthUpMd = useMediaQuery(theme.breakpoints.up("md"));
-  
+
   return (
-    <div className={classNames("py-5", classes.divPrice)} style={{ backgroundColor: "#ffdbf7" }}>
-      <Typography variant="h3" align="center" className="lg-mg-bottom">
-        Pricing
+    <div
+      className={classNames("py-5", classes.divPrice)}
+      style={{ backgroundColor: "#f7d4ef" }}
+    >
+      <Typography variant="h3" align="center" className="mb-5 heading">
+        About Us
       </Typography>
       <div className={classNames("container-fluid", classes.containerFix)}>
         <Grid
@@ -76,38 +85,40 @@ function PricingSection(props) {
             lg={3}
             className={classes.cardWrapper}
             data-aos="zoom-in-up"
-            data-aos-delay={200}
+            data-aos-delay={"600"}
           >
             <PriceCard
               title="Starter"
-              pricing={
-                <span>
-                  $14.99
-                  <Typography display="inline"> / month</Typography>
-                </span>
+              description={
+                <Typography display="inline">
+                  Our university offers a variety of courses to meet the needs
+                  of every student. From Business to Biology, and from
+                  Psychology to Politics, our university provides the right
+                  courses to help students reach their educational goals.
+                </Typography>
               }
-              features={["Feature 1", "Feature 2", "Feature 3"]}
             />
           </Grid>
           <Grid
-            highlighted
             item
             className={classes.cardWrapperHighlighted}
             xs={12}
             sm={6}
             lg={3}
             data-aos="zoom-in-up"
-            data-aos-delay="200"
+            data-aos-delay={"600"}
           >
             <PriceCard
               title="Premium"
-              pricing={
-                <span>
-                  $29.99
-                  <Typography display="inline"> / month</Typography>
-                </span>
+              description={
+                <Typography display="inline">
+                  Our university provides a wide range of facilities to ensure
+                  that all students have the best possible educational
+                  experience. We offer state-of-the-art classNamerooms, computer
+                  labs, and libraries; recreational and athletic facilities; and
+                  a variety of student services.
+                </Typography>
               }
-              features={["Feature 1", "Feature 2", "Feature 3"]}
             />
           </Grid>
           <Grid
@@ -117,17 +128,19 @@ function PricingSection(props) {
             sm={6}
             lg={3}
             data-aos="zoom-in-up"
-            data-aos-delay={isWidthUpMd ? "400" : "0"}
+            data-aos-delay={"600"}
           >
             <PriceCard
               title="Business"
-              pricing={
-                <span>
-                  $49.99
-                  <Typography display="inline"> / month</Typography>
-                </span>
+              description={
+                <Typography display="inline">
+                  The Library of Knowledge is a comprehensive collection of
+                  resources available to students and faculty at our university.
+                  It includes books, journals, magazines, and other materials
+                  that can be used to further research, expand knowledge, and
+                  enhance understanding.
+                </Typography>
               }
-              features={["Feature 1", "Feature 2", "Feature 3"]}
             />
           </Grid>
           <Grid
@@ -137,21 +150,28 @@ function PricingSection(props) {
             sm={6}
             lg={3}
             data-aos="zoom-in-up"
-            data-aos-delay={isWidthUpMd ? "600" : "200"}
+            data-aos-delay={"600"}
           >
             <PriceCard
               title="Tycoon"
-              pricing={
-                <span>
-                  $99.99
-                  <Typography display="inline"> / month</Typography>
-                </span>
+              description={
+                <Typography display="inline">
+                  Get ready to learn from the best! Our university provides
+                  skilled instructors for your educational needs. Our university
+                  is dedicated to providing you with the best educational
+                  experience.
+                </Typography>
               }
-              features={["Feature 1", "Feature 2", "Feature 3"]}
             />
           </Grid>
         </Grid>
       </div>
+      <WaveBorder
+        upperColor="transparent"
+        lowerColor="#8E1E77"
+        className={classes.waveBorder}
+        animationNegativeDelay={2}
+      />
     </div>
   );
 }

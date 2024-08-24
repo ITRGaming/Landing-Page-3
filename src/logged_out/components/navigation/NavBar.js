@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import PropTypes from "prop-types";
 import { AppBar, Toolbar } from "@mui/material";
-import Logo from 'isbmuniLogo.png'
+import Logo from '../../../images/logged_out/isbmuniLogo.png'
 import withStyles from '@mui/styles/withStyles';
 
 const styles = theme => ({

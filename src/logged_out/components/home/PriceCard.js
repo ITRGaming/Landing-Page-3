@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Typography, Box } from "@mui/material";
+import { Box } from "@mui/material";
 import withStyles from "@mui/styles/withStyles";
-import CheckIcon from "@mui/icons-material/Check";
 
 const styles = (theme) => ({
   card: {
@@ -15,7 +14,7 @@ const styles = (theme) => ({
     borderRadius: theme.shape.borderRadius * 2,
     
     '&.title': {
-        color: theme.palette.primary.main,
+        color: theme.black,
       },
 
     '&:hover': {
@@ -37,54 +36,31 @@ const styles = (theme) => ({
 });
 
 function PriceCard(props) {
-  const { classes, theme, title, pricing, features, highlighted } = props;
+  const { classes, title, description } = props;
   return (
     <div className={classes.card}>
       <Box mb={2}>
-        <Typography
-          variant={highlighted ? "h5" : "h6"}
+        <h5
           className={classes.title}
         >
           {title}
-        </Typography>
+        </h5>
       </Box>
       <Box mb={2}>
-        <Typography
-          variant={highlighted ? "h3" : "h4"}
+        <h3
           className={classes.title}
         >
-          {pricing}
-        </Typography>
+          {description}
+        </h3>
       </Box>
-      {features.map((feature, index) => (
-        <Box display="flex" alignItems="center" mb={1} key={index}>
-          <CheckIcon
-            style={{
-              color: highlighted
-                ? theme.palette.common.white
-                : theme.palette.primary.dark,
-            }}
-          />
-          <Box ml={1}>
-            <Typography
-              className={classes.title}
-              variant={highlighted ? "h6" : "body1"}
-            >
-              {feature}
-            </Typography>
-          </Box>
-        </Box>
-      ))}
     </div>
   );
 }
 
 PriceCard.propTypes = {
   classes: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
-  pricing: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
-  highlighted: PropTypes.bool,
+  description: PropTypes.string.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(PriceCard);

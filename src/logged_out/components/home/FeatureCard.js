@@ -47,7 +47,6 @@ function FeatureCard(props) {
         className={classes.iconWrapper}
         style={{
           color: color,
-          backgroundColor: shadeColor(color, 0.5),
           fill: color,
           padding: 12,
         }}
