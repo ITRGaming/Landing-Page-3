@@ -2,14 +2,23 @@ import React from "react";
 import { Grid, Typography } from "@mui/material";
 import calculateSpacing from "./calculateSpacing";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { withTheme } from "@mui/styles";
+import { withStyles } from "@mui/styles";
 import FeatureCard from "./FeatureCard";
 import useWidth from "../../../shared/functions/useWidth";
-
+import WaveBorder from "../../../shared/components/WaveBorder";
 import Fees from '../../../images/logged_out/affordable.png';
 import Job from '../../../images/logged_out/jobOP.png';
 import Placement from '../../../images/logged_out/placement.png';
 import Learning from '../../../images/logged_out/learning.png';
+
+const styles = (theme) => ({
+  waveBorder: {
+    width: "100%",
+    marginTop: theme.spacing(4),
+    paddingTop: theme.spacing(4),
+    bottom: "0",
+  },
+})
 
 const features = [
   {
@@ -71,7 +80,7 @@ const features = [
 ];
 
 function FeatureSection(props) {
-  const { theme } = props;
+  const { classes, theme } = props;
   const width = useWidth();
   const isWidthUpMd = useMediaQuery(theme.breakpoints.up("md"));
 
@@ -103,10 +112,16 @@ function FeatureSection(props) {
           </Grid>
         </div>
       </div>
+      <WaveBorder
+          upperColor="#fff"
+          lowerColor="#F7D4EF"
+          className={classes.waveBorder}
+          animationNegativeDelay={2}
+      />
     </div>
   );
 }
 
 FeatureSection.propTypes = {};
 
-export default withTheme(FeatureSection);
+export default withStyles(styles, { withTheme: true })(FeatureSection);

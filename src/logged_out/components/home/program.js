@@ -5,6 +5,7 @@ import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.min.css";
 import "owl.carousel/dist/assets/owl.theme.default.min.css";
 import "./program.css";
+import WaveBorder from "../../../shared/components/WaveBorder";
 
 import course1 from "../../../images/course/1.jpg";
 import course2 from "../../../images/course/2.jpg";
@@ -53,6 +54,11 @@ function Program() {
 
     return(
         <section id="programmes">
+          <WaveBorder
+            upperColor="#8E1E77"
+            lowerColor="#fff"
+            animationNegativeDelay={2}
+          />
           <div className="container wow fadeInUp mt-5" data-wow-delay="0.1s">
             <div className="text-center">
               <h1 className="heading">

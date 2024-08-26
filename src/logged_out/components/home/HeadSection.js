@@ -63,6 +63,7 @@ const styles = (theme) => ({
     width: "100%",
     overflow: "hidden",
     paddingBottom: theme.spacing(2),
+    backgroundColor: theme.palette.primary.main,
   },
   image: {
     maxWidth: "100%",
@@ -135,7 +136,7 @@ function HeadSection(props) {
 
   return (
     <Fragment>
-      <div className={classNames("pt-5", classes.wrapper)}>
+      <div className={classNames("pt-5", classes.wrapper)} style={{ position: 'relative' }}>
         <div style={{ position: 'relative' }}>
           <video muted autoPlay loop style={{ width: "100%" }}>
             <source src={BannerVideo} type="video/mp4" />
