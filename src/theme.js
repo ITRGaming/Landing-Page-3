@@ -3,8 +3,9 @@ import { createTheme, responsiveFontSizes, adaptV4Theme } from "@mui/material";
 // colors
 const primary = "#8E1E77";
 const secondary = "#0B3460";
-const black = "#343a40";
-const darkBlack = "rgb(36, 40, 44)";
+const black = "#000";
+const white = "#fff";
+const darkBlack = "rgb(14, 51, 96)";
 const background = "#f5f5f5";
 const warningLight = "rgba(253, 200, 69, .3)";
 const warningMain = "rgba(253, 200, 69, .5)";
@@ -30,7 +31,7 @@ const theme = createTheme(adaptV4Theme({
     secondary: { main: secondary },
     common: {
       black,
-      darkBlack
+      white
     },
     warning: {
       light: warningLight,

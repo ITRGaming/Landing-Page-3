@@ -26,7 +26,7 @@ function Alumni() {
 
   return (
       <section id="alumni">
-              <div className="container lg-p-top">
+              <div className="container lg-p-top mt-5 ">
                 <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
                   <h1 className="heading mb-5">
                     Our Alumni

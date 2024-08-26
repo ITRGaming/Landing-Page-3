@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from "react";
 import PropTypes from "prop-types";
 import HeadSection from "./HeadSection";
 import FeatureSection from "./FeatureSection";
-import PricingSection from "./PricingSection";
+import AboutUsSection from "./AboutUsSection";
 import Alumni from "./alumni.js";
 import Program from "./program.js";
 
@@ -16,7 +16,7 @@ function Home(props) {
       <HeadSection />
       <Program/>
       <FeatureSection />
-      <PricingSection />
+      <AboutUsSection />
       <Alumni />
     </Fragment>
   );
